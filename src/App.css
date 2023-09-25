@@ -326,5 +326,33 @@
          background-size: 7vmin 5vmin;
     }
     
-     
-    
+
+    @media only screen and (max-width: 420px) {
+      .carousel-container {
+        width: 100%;
+        height: 100%;
+    }
+
+      .carousel-list {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+    }
+    .content-container {
+      /* position: flex; */
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 100%; /* adjust this value as needed */
+      background-color: #83b6d7; /* change the background color asS needed */
+      overflow-y: auto; /* add scrollbar when content overflows vertically */
+      padding: 20px; /* add padding as needed */
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box; /* include padding in element's total width */
+      }
+      
+    }
