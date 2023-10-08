@@ -111,7 +111,7 @@ function App() {
           <li className="carousel-item">
             <div className="carousel-content" style={{position: 'relative', display: 'inline-block'}}>
               <img src={odin5} />
-              <div style={{ position: 'absolute', bottom: '50%', left: 0, right: 0, backgroundColor: 'rgba(0, 0, 0, 0.7)', padding: '10px', fontFamily: 'Helvetica, sans-serif', color: 'white', fontSize: '80px'}}>
+              <div className="carousel-title">
               home
             </div>
             <div className="content-write" style={{display: 'none'}}>
@@ -126,7 +126,7 @@ function App() {
         <li className="carousel-item">
           <div className="carousel-content" style={{position: 'relative', display: 'inline-block'}}>
             <img src={odin4} />
-            <div style={{position: 'absolute', bottom: '50%', left: 0, right: 0, backgroundColor: 'rgba(0, 0, 0, 0.7)', padding: '10px', fontFamily: 'Helvetica, sans-serif', color: 'white', fontSize: '80px'}}>
+            <div className="carousel-title">
               projects
             </div>
             <div className="content-write" style={{display: 'none'}}>
@@ -141,7 +141,7 @@ function App() {
         <li className="carousel-item">
           <div className="carousel-content" style={{position: 'relative', display: 'inline-block'}}>
             <img src={odin3} />
-            <div style={{position: 'absolute', bottom: '50%', left: 0, right: 0, backgroundColor: 'rgba(0, 0, 0, 0.7)', padding: '10px', fontFamily: 'Helvetica, sans-serif', color: 'white', fontSize: '80px'}}>
+            <div  className="carousel-title">
               resume
             </div>
             <div className="content-write" style={{display: 'none'}}>
@@ -152,7 +152,7 @@ function App() {
         <li className="carousel-item">
           <div className="carousel-content" style={{position: 'relative', display: 'inline-block'}}>
             <img src={odin2} />
-            <div style={{position: 'absolute', bottom: '50%', left: 0, right: 0, backgroundColor: 'rgba(0, 0, 0, 0.7)', padding: '10px', fontFamily: 'Helvetica, sans-serif', color: 'white', fontSize: '80px'}}>
+            <div className="carousel-title">
               design
             </div>
             <div className="content-write" style={{display: 'none'}}><h1>deSiGN!</h1></div>
@@ -161,7 +161,7 @@ function App() {
         <li className="carousel-item">
           <div className="carousel-content" style={{position: 'relative', display: 'inline-block'}}>
             <img src={odin1} />
-            <div style={{position: 'absolute', bottom: '50%', left: 0, right: 0, backgroundColor: 'rgba(0, 0, 0, 0.7)', padding: '10px', fontFamily: 'Helvetica, sans-serif', color: 'white', fontSize: '80px'}}>
+            <div className="carousel-title">
               contact
             </div>
             <div className="content-write" style={{display: 'none'}}>

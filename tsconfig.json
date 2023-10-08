@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+      "jsx": "react",
+      "moduleResolution": "node",
+      "baseUrl": ".",
+      "typeRoots": [
+        "node_modules/@types",
+        "src/types"
+      ],
+    },
+    "include": [
+      "src/*",
+      "src/types",
+    ]
+}

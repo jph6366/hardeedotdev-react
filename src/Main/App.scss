@@ -1,0 +1,183 @@
+
+// @TODO techinical debt: adding pre/post-processing to css (now scss)
+
+
+body {
+    background-color: #83b6d7; /* change the background color asS needed */
+}
+// Carousel configuration parameters
+$n: 8; // Number of images
+$item-width:100px; // Width of an image. In the Js version this value can be a percentage
+$item-separation: 20px; // The space between the images. This will decrease the effective item width
+$viewer-distance: 300px;
+
+// Derived variables
+$theta: calc( 2 * 3.141592653589793 / $n);
+$apothem: 482.842712474619px; // == $item-width / (2 * tan(PI / $n))
+
+
+.carousel-container {
+    display: flex;
+    position: fixed;
+    z-index: 1;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.carousel-list {
+    perspective: $viewer-distance;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+
+ > * {
+    flex: 0 0 auto;
+  }
+ figure {
+		margin: 0;
+		transform-style: preserve-3d;
+        transition: transform 0.5s;
+        // transform-origin: 50% 50% (-$apothem);
+        width: 100vw;
+
+        
+
+        .carousel-item {
+            width: 100vw;
+			box-sizing: border-box;
+			padding: 0 calc($item-separation / 2);
+            
+            
+            img {
+                width: $item-width;
+            }
+
+
+			
+			&:not(:first-of-type) {
+				position: absolute;
+				left: 0;
+				top: 0;
+                transition: 50% 50% (-$apothem);
+
+			}
+            @for $i from 2 through $n {
+                &:nth-child(#{$i}) {
+                  transform: rotateY(#{($i - 2) * $theta}rad);
+                }
+            }
+            
+        }
+    }
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+    }
+
+
+
+
+.content-container {
+    display: flex;
+    flex-direction: row;
+    // position: absolute;
+    // top: 25%;
+    overflow: hidden;
+
+}
+
+
+.carousel-item.selected img  {
+      cursor: pointer;
+      position: relative;
+      z-index: 0;
+      border-radius: 10px;
+    //   -webkit-transform: scale(1.2);
+    //       -ms-transform: scale(1.2);
+    //           transform: scale(1.2);
+}
+
+.carousel-item.selected img:before {
+    content: '';
+    background: -o-linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size:400%;
+    z-index: -1;
+    -webkit-filter: blur(5px);
+            filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    -webkit-animation: glowing 20s linear infinite;
+            animation: glowing 20s linear infinite;
+    opacity: 0;
+    -webkit-transition: opacity .3s ease-in-out;
+    -o-transition: opacity .3s ease-in-out;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.carousel-item.selected img:active {
+    color: #000
+}
+
+.carousel-item.selected img:active:after {
+    background: transparent;
+}
+
+.carousel-item.selected img:hover:before {
+    opacity: 1;
+}
+
+.carousel-item.selected img:after {
+    z-index: 0;
+    content: '';
+    position: absolute;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+.carousel-list:hover .carousel-item.selected  {
+//   -webkit-transform: scale(1.4);
+//       -ms-transform: scale(1.4);
+//           transform: scale(1.4);
+}
+
+// .parallax-image {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     /* overflow: hidden; */
+//   }
+  
+//   .parallax-image img {
+//     display: block;
+//     width: 100%;
+//     height: 100%;
+//     -webkit-transition: -webkit-transform 0.2s ease-out;
+//     transition: -webkit-transform 0.2s ease-out;
+//     -o-transition: transform 0.2s ease-out;
+//     transition: transform 0.2s ease-out;
+//     transition: transform 0.2s ease-out, -webkit-transform 0.2s ease-out;
+//   }
+
+//   .mouse-parallax {
+//     -webkit-transition: -webkit-transform 0.2s ease-out;
+//     transition: -webkit-transform 0.2s ease-out;
+//     -o-transition: transform 0.2s ease-out;
+//     transition: transform 0.2s ease-out;
+//     transition: transform 0.2s ease-out, -webkit-transform 0.2s ease-out;
+//   }
+
