@@ -14,7 +14,7 @@ export function SinglePageAppView ({ pageRepository }: SinglePageAppViewProps) {
     handleOnMouseUpCarousel,
     handleOnMouseDownCarousel,
     handleOnTouchStartCarousel,
-    handleOnTouchEndCarousel,
+    handleOnTouchMoveCarousel,
     handleMouseMoveParallaxEffect,
     handleMouseLeaveParallaxEffect,
     handleMouseEnterParallaxEffect } =
@@ -26,7 +26,7 @@ export function SinglePageAppView ({ pageRepository }: SinglePageAppViewProps) {
           onMouseDown={handleOnMouseDownCarousel}
           onMouseUp={handleOnMouseUpCarousel} 
           onTouchStart={handleOnTouchStartCarousel}
-          onTouchEnd={handleOnTouchEndCarousel}>
+          onTouchMove={handleOnTouchMoveCarousel}>
         <ul className="carousel-list">
           <nav onWheel={handleOnWheelRotateCarousel} 
               >

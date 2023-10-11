@@ -15,6 +15,11 @@ export function useSinglePageAppModelController(pageRepository: PageAppRepositor
     startTime, elapsedTime,
     swipeDir;
 
+    let 
+    initialTouchX, currentTouchX, 
+    rotationAngle 
+    = 0;
+
 
     useEffect( () => {
         async function init() {
@@ -155,45 +160,21 @@ export function useSinglePageAppModelController(pageRepository: PageAppRepositor
     };
 
     const handleOnTouchStartCarousel = async (event: React.TouchEvent<HTMLElement>) => {
-
-        var touchObj = event.changedTouches[0];
-        swipeDir= 'none';
-        startX = touchObj.pageX;
-        startY = touchObj.pageY;
-        startTime = new Date().getTime();
+        initialTouchX = event.touches[0].clientX;
     };
     
-    const handleOnTouchEndCarousel = async (event: React.TouchEvent<HTMLElement>) => {
+    const handleOnTouchMoveCarousel = async (event: React.TouchEvent<HTMLElement>) => {
 
         var carousel = document.querySelector('.carousel-list');
+        var figure = carousel.querySelector('figure');
 
-        var touchObj = event.changedTouches[0];
-        distX = touchObj.pageX - startX;
-        distY = touchObj.pageY - startY;
-        elapsedTime = new Date().getTime() - startTime;
+        currentTouchX = event.touches[0].pageX;
+        const rotationDelta = currentTouchX - initialTouchX;
+        rotationAngle += rotationDelta;
 
-        if(elapsedTime <= 500) {
-            if(Math.abs(distX) >= 10) {
-                swipeDir = (distX < 0)? 'left' : 'right'
-            }
-        }
+        figure.style.transform = `rotateY(${rotationAngle}deg)`;
+        initialTouchX = currentTouchX;
 
-        if(swipeDir === 'left') {
-            currentPageApp.contentIndex++;
-        } else if (swipeDir === 'right') {
-            currentPageApp.contentIndex--;
-        }
-
-        console.log(swipeDir)
-
-
-        if(swipeDir !== 'none') {
-            var figure = carousel.querySelector('figure'),
-            numImages = figure.childElementCount,
-            theta =  2 * Math.PI / numImages;
-            figure.style.transform = `rotateY(${ currentPageApp.contentIndex * -theta}rad)`;        
-        }
-        
 
     };
 
@@ -204,7 +185,7 @@ export function useSinglePageAppModelController(pageRepository: PageAppRepositor
         handleOnMouseUpCarousel,
         handleOnMouseDownCarousel,
         handleOnTouchStartCarousel,
-        handleOnTouchEndCarousel,
+        handleOnTouchMoveCarousel,
         handleMouseMoveParallaxEffect,
         handleMouseLeaveParallaxEffect,
         handleMouseEnterParallaxEffect
