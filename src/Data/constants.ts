@@ -15,6 +15,7 @@ import resume from "../assets/documents/resume.PNG";
 
  const resumeCopy = document.createElement('img');
  resumeCopy.src = resume;
+ resumeCopy.style.zIndex ='0';
 
  resumeContainer.appendChild(resumeCopy);
 
@@ -27,6 +28,7 @@ export const carouselList:CarouselItem[] =
 [
     new CreateCarouselItem(resumeContainer,'resume', odin4),
     new CreateCarouselItem('','dog', odin2),
+    new CreateCarouselItem('','dog', odin1),
     new CreateCarouselItem('','dog', odin3),
     new CreateCarouselItem('','dog', odin5),
     new CreateCarouselItem('','dog', odin4),

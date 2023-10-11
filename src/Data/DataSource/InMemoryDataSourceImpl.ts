@@ -8,7 +8,7 @@ export class InMemoryDataSourceImpl implements DataSource {
 
   constructor() {
     const carouselContent: SPACarousel = new SPACarousel(carouselList);
-    this.inMemorySPA = new SPA('', carouselContent, pageContentString);
+    this.inMemorySPA = new SPA('', carouselContent, pageContentString, 0);
   }
     async setSPA(spa: PageAppItem): Promise<void> {
         this.inMemorySPA = spa;

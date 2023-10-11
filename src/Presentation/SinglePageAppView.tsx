@@ -11,17 +11,25 @@ export function SinglePageAppView ({ pageRepository }: SinglePageAppViewProps) {
     currentPageApp,
     currentCarouselItem, 
     handleOnWheelRotateCarousel,
+    handleOnMouseUpCarousel,
+    handleOnMouseDownCarousel,
+    handleOnTouchStartCarousel,
+    handleOnTouchEndCarousel,
     handleMouseMoveParallaxEffect,
     handleMouseLeaveParallaxEffect,
     handleMouseEnterParallaxEffect } =
   useSinglePageAppModelController(pageRepository);
 
-
   return (
     <div>
-    <div className="carousel-container">
-        <ul className="carousel-list" >
-          <nav onWheel={handleOnWheelRotateCarousel}>
+    <div className="carousel-container"
+          onMouseDown={handleOnMouseDownCarousel}
+          onMouseUp={handleOnMouseUpCarousel} 
+          onTouchStart={handleOnTouchStartCarousel}
+          onTouchEnd={handleOnTouchEndCarousel}>
+        <ul className="carousel-list">
+          <nav onWheel={handleOnWheelRotateCarousel} 
+              >
             <figure>
               {currentPageApp?.carousel.itemList.map((item, index) => {
                   return  <li key={index} className="carousel-item">
@@ -32,9 +40,13 @@ export function SinglePageAppView ({ pageRepository }: SinglePageAppViewProps) {
           </nav>
         </ul>
     </div>
-
     <div className="content-container">
       <div  className="carousel-title">
+        {currentCarouselItem &&
+        <p>
+          {currentCarouselItem.title}
+          </p>
+        }
       </div>
     </div>
     </div>

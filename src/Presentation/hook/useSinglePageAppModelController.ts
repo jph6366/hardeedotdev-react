@@ -8,13 +8,19 @@ import odin4 from "../../assets/images/odin4.jpg";
 export function useSinglePageAppModelController(pageRepository: PageAppRepository) {
     const [currentPageApp, setCurrentPageApp] = useState<SinglePageApp>();
     const [currentCarouselItem, setCurrentCarouselItem] = useState<CarouselItem>();
-    let selectedIndex;
-    let currImage = 0;
+    let selectedIndex= 6;
+    let
+    distX, distY, 
+    startX,startY,
+    startTime, elapsedTime,
+    swipeDir;
+
 
     useEffect( () => {
         async function init() {
             setCurrentPageApp(await pageRepository.getPageContent());
-            setCurrentCarouselItem(await new CreateCarouselItem(resumeImg,'resume', odin4));
+            const cci = await new CreateCarouselItem(resumeImg,'resume', odin4)
+            setCurrentCarouselItem(cci);
         }
         init();
     }, []);
@@ -48,41 +54,157 @@ export function useSinglePageAppModelController(pageRepository: PageAppRepositor
     const handleOnWheelRotateCarousel = async (event: React.WheelEvent<HTMLUListElement>) => {
 
         const carouselItems = document.querySelectorAll('.carousel-item');
-        const contentContainer = document.querySelector('.content-container');
 
 
         var
         carousel = document.querySelector('.carousel-list'),
         figure = carousel.querySelector('figure'),
+        nav = carousel.querySelector('nav'),
         numImages = figure.childElementCount,
         theta =  2 * Math.PI / numImages
         ;
-        console.log(numImages)
+
+        console.log(event.deltaY);
+        console.log(carouselItems.length);
+
 
 
         if (event.deltaY < 0) {
-            currImage++;
-            selectedIndex = selectedIndex > 0 ? selectedIndex - 1 : carouselItems.length - 1;
+            currentPageApp.contentIndex++;
         } else if (event.deltaY > 0) {
-            currImage--;
-            selectedIndex = selectedIndex < carouselItems.length - 1 ? selectedIndex + 1 : 0;
+            currentPageApp.contentIndex--;
         }
 
+
         carouselItems.forEach(item => item.classList.remove('selected'));
+
+        console.log("currimg"+ currentPageApp.contentIndex)
+
+
+        if(Math.abs(currentPageApp.contentIndex) >= carouselItems.length) {
+            if (Math.abs(currentPageApp.contentIndex) > carouselItems.length) {
+                selectedIndex = Math.abs(currentPageApp.contentIndex % carouselItems.length);
+            } else if(currentPageApp.contentIndex > 0) {
+                selectedIndex = currentPageApp.contentIndex-1;
+            } else {
+                selectedIndex = carouselItems.length-1;
+            }
+        } else {
+            if(currentPageApp.contentIndex >= 0) {
+                selectedIndex = currentPageApp.contentIndex;
+            } else {
+                selectedIndex = carouselItems.length + currentPageApp.contentIndex;
+            }        }
+        console.log("selected"+selectedIndex)
         carouselItems[selectedIndex].classList.add('selected');
-        // setCurrentCarouselItem(currentPageApp.carousel.itemList.at(selectedIndex))
-        // contentContainer.innerHTML = '';
-        // contentContainer.append(currentCarouselItem.content)
+
+        console.log("currimg"+ currentPageApp.contentIndex)
+
+        setCurrentCarouselItem(currentPageApp.carousel.itemList.at(selectedIndex))
 
         
 
-        figure.style.transform = `rotateY(${currImage * -theta}rad)`;
+        figure.style.transform = `rotateY(${ currentPageApp.contentIndex+10 * -theta}rad)`;
+        nav.style.transform = `rotateX(${currentPageApp.contentIndex*.01}rad)`;
+
+    };
+    
+    const handleOnMouseDownCarousel = async (event: React.MouseEvent<HTMLElement>) => {
+
+        swipeDir= 'none';
+        startX = event.clientX;
+        startY = event.clientY;
+        startTime = new Date().getTime();
+    };
+    
+    const handleOnMouseUpCarousel = async (event: React.MouseEvent<HTMLElement>) => {
+
+
+        var carousel = document.querySelector('.carousel-list'),
+
+        distX = event.clientX - startX;
+        distY = event.clientY - startY;
+        elapsedTime = new Date().getTime() - startTime;
+
+
+
+        if(elapsedTime <= 500) {
+            console.log("x" + Math.abs(distX))
+            if(Math.abs(distX) >= 10) {
+                swipeDir = (distX < 0)? 'left' : 'right'
+            }
+        }
+
+        if(swipeDir === 'left') {
+            currentPageApp.contentIndex++;
+        } else if (swipeDir === 'right') {
+            currentPageApp.contentIndex--;
+        }
+
+        console.log(swipeDir)
+
+
+        if(swipeDir !== 'none') {
+            var figure = carousel.querySelector('figure'),
+            numImages = figure.childElementCount,
+            theta =  2 * Math.PI / numImages;
+            figure.style.transform = `rotateY(${ currentPageApp.contentIndex * -theta}rad)`;        
+    
+        }
+
+    };
+
+    const handleOnTouchStartCarousel = async (event: React.TouchEvent<HTMLElement>) => {
+
+        var touchObj = event.changedTouches[0];
+        swipeDir= 'none';
+        startX = touchObj.pageX;
+        startY = touchObj.pageY;
+        startTime = new Date().getTime();
+    };
+    
+    const handleOnTouchEndCarousel = async (event: React.TouchEvent<HTMLElement>) => {
+
+        var carousel = document.querySelector('.carousel-list');
+
+        var touchObj = event.changedTouches[0];
+        distX = touchObj.pageX - startX;
+        distY = touchObj.pageY - startY;
+        elapsedTime = new Date().getTime() - startTime;
+
+        if(elapsedTime <= 500) {
+            if(Math.abs(distX) >= 10) {
+                swipeDir = (distX < 0)? 'left' : 'right'
+            }
+        }
+
+        if(swipeDir === 'left') {
+            currentPageApp.contentIndex++;
+        } else if (swipeDir === 'right') {
+            currentPageApp.contentIndex--;
+        }
+
+        console.log(swipeDir)
+
+
+        if(swipeDir !== 'none') {
+            var figure = carousel.querySelector('figure'),
+            numImages = figure.childElementCount,
+            theta =  2 * Math.PI / numImages;
+            figure.style.transform = `rotateY(${ currentPageApp.contentIndex * -theta}rad)`;        
+        }
+        
+
     };
 
     return {
         currentPageApp,
         currentCarouselItem,
         handleOnWheelRotateCarousel,
+        handleOnMouseUpCarousel,
+        handleOnMouseDownCarousel,
+        handleOnTouchStartCarousel,
+        handleOnTouchEndCarousel,
         handleMouseMoveParallaxEffect,
         handleMouseLeaveParallaxEffect,
         handleMouseEnterParallaxEffect
