@@ -1,19 +1,27 @@
+import { ReactNode } from "react";
 
 export interface CarouselItem {
-    content: string | HTMLElement | Node;
+    content: string | HTMLElement | ReactNode;
     title: string;
     image: string;
 };
 
-export class CreateCarouselItem implements CarouselItem{
-    content: string | HTMLElement | Node;
+export interface InteractableCarouselItem extends CarouselItem {
+    projection: number
+    range: number
+};
+
+export class CreateCarouselItem implements CarouselItem, InteractableCarouselItem{
+    content: string | HTMLElement | ReactNode;
     title: string;
     image: string;
-    constructor(content: string | HTMLElement | Node, title: string, image: string) {
+    constructor(content: string | HTMLElement | ReactNode, title: string, image: string) {
         this.content = content;
         this.title = title;
         this.image = image;
     }
+    projection: number;
+    range: number;
 }
 
 export interface Carousel{

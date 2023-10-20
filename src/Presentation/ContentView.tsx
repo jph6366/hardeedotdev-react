@@ -1,16 +1,15 @@
 import * as React from "react";
 import { CarouselItem } from "../Domain/Model/Carousel";
 
+type CarouselItemProps = {
+  contentItem: CarouselItem;
+};
 
-export function ContentView (contentItem : CarouselItem) {
+export function ContentView ({contentItem} : CarouselItemProps) {
 
   return (
-
-    <div className="content-container">
-      <div  className="carousel-title">
-        <p>{contentItem.title}</p>
-      </div>
+    <div>
+        {contentItem.content as React.ReactNode}
     </div>
-
   );
 }

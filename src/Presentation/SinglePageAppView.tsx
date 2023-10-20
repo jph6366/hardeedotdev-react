@@ -1,6 +1,7 @@
 import * as React from "react";
 import { PageAppRepository } from "../Domain/Repository/PageAppRepository";
 import { useSinglePageAppModelController } from "./hook/useSinglePageAppModelController";
+import { ContentView } from "./ContentView";
 
 type SinglePageAppViewProps = {
   pageRepository: PageAppRepository;
@@ -10,6 +11,7 @@ export function SinglePageAppView ({ pageRepository }: SinglePageAppViewProps) {
   const { 
     currentPageApp,
     currentCarouselItem, 
+    setupCarousel,
     handleOnWheelRotateCarousel,
     handleOnMouseUpCarousel,
     handleOnMouseDownCarousel,
@@ -20,6 +22,10 @@ export function SinglePageAppView ({ pageRepository }: SinglePageAppViewProps) {
     handleMouseEnterParallaxEffect } =
   useSinglePageAppModelController(pageRepository);
 
+    setTimeout(() => {
+      setupCarousel();
+    });
+
   return (
     <div>
     <div className="carousel-container"
@@ -29,11 +35,13 @@ export function SinglePageAppView ({ pageRepository }: SinglePageAppViewProps) {
           onTouchMove={handleOnTouchMoveCarousel}>
         <ul className="carousel-list">
           <nav onWheel={handleOnWheelRotateCarousel} 
+          
               >
-            <figure>
+            <figure >
               {currentPageApp?.carousel.itemList.map((item, index) => {
-                  return  <li key={index} className="carousel-item">
+                  return  <li  key={index} className="carousel-item">
                               <img alt={item.title} src={item.image} />
+                              <p>{item.title}</p>
                           </li>
               })} 
               </figure>
@@ -41,11 +49,14 @@ export function SinglePageAppView ({ pageRepository }: SinglePageAppViewProps) {
         </ul>
     </div>
     <div className="content-container">
-      <div  className="carousel-title">
+      <div>
         {currentCarouselItem &&
-        <p>
-          {currentCarouselItem.title}
+        <div  className="carousel-title">
+          <p>
+            {currentCarouselItem.title}
           </p>
+          <ContentView  contentItem={currentCarouselItem}/>
+        </div>
         }
       </div>
     </div>
