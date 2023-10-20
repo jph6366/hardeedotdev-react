@@ -28,7 +28,7 @@ const AIR_PORTS =
       };
 
   return (
-    <div className="deckGL-view">
+    <div className="deckGL-view" style={{width: '100vw', height: '200px'}}>
         <DeckGL controller={true} initialViewState={INITIAL_VIEW_STATE}>
             <GeoJsonLayer
             id="base-map"

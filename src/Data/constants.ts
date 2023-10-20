@@ -8,7 +8,11 @@ import resume from "../assets/documents/resume.PNG";
 import * as React from "react";
 import { PDFView } from "../Presentation/PDFView";
 import { ContactView } from "src/Presentation/ContactView";
-import { DeckGLView } from "src/Presentation/DeckGLView";
+import { DeckGLView } from "src/Presentation/GISViews/DeckGLView";
+import { ProjectsView } from "src/Presentation/ProjectsView";
+import { GISView } from "src/Presentation/GISView";
+
+
 
 //  const titleContainer = React.createElement('div');
 //  titleContainer.props.className = "carousel-title";
@@ -82,8 +86,8 @@ export const carouselList:CarouselItem[] =
 [
   new CreateCarouselItem(aboutContainer,'about', odin2),
   new CreateCarouselItem(PDFView(),'resume', odin5),
-  new CreateCarouselItem(DeckGLView(),'gis', odin4),
-  new CreateCarouselItem('','projects', odin3),
+  new CreateCarouselItem(GISView(),'gis', odin4),
+  new CreateCarouselItem(ProjectsView(),'projects', odin3),
   new CreateCarouselItem(ContactView(),'contact', odin2),
   new CreateCarouselItem('','more', odin5),
 

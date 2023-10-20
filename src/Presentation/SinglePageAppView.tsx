@@ -51,10 +51,12 @@ export function SinglePageAppView ({ pageRepository }: SinglePageAppViewProps) {
     <div className="content-container">
       <div>
         {currentCarouselItem &&
+      <div>
         <div  className="carousel-title">
           <p>
             {currentCarouselItem.title}
           </p>
+          </div>
           <ContentView  contentItem={currentCarouselItem}/>
         </div>
         }
