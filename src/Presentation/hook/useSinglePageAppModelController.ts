@@ -29,7 +29,7 @@ export function useSinglePageAppModelController(pageRepository: PageAppRepositor
 
             setCurrentPageApp(await pageRepository.getPageContent());
             setTouchAngle(0);
-            
+            setCurrentCarouselItem((await pageRepository.getPageContent()).carousel.itemList[0])
         }
         init();
     }, []);

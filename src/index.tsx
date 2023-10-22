@@ -5,10 +5,14 @@ import * as ReactDOM from 'react-dom/client';
 // import ResponsiveApp from './ResponsiveApp'
 import { App } from './Main/App';
 import reportWebVitals from './reportWebVitals';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <head>    
+      <link rel="stylesheet" href="/Widgets/widgets.css" />
+    </head>
     <App/>
   </React.StrictMode>
 );

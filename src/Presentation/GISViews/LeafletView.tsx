@@ -14,18 +14,22 @@ export class LeafletView extends React.Component {
     }
 
     render(): React.ReactNode {
-        return <MapContainer style={{width: '100vw', height: '200px'}} center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
-                    <TileLayer
-                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    />
-                    <Marker position={[51.505, -0.09]}>
-                        <Popup>
-                        A pretty CSS3 popup. <br /> Easily customizable.
-                        </Popup>
-                    </Marker>
-            </MapContainer>
-        
+
+        return            <div>
+                <p style={{zIndex: 10000, position: 'absolute',fontSize: '47px', fontFamily: 'Helvetica'}}>leaflet</p>
+                <MapContainer style={{width: '100vw', height: '200px'}} center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
+                        <TileLayer
+                            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        />
+                        <Marker position={[51.505, -0.09]}>
+                            <Popup>
+                            A pretty CSS3 popup. <br /> Easily customizable.
+                            </Popup>
+                        </Marker>
+                </MapContainer>
+            </div> 
+
     }
 
 }
