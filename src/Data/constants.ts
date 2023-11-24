@@ -12,6 +12,9 @@ import { ContactView } from "src/Presentation/ContactView";
 import { DeckGLView } from "src/Presentation/GISViews/DeckGLView";
 import { ProjectsView } from "src/Presentation/ProjectsView";
 import { GISView } from "src/Presentation/GISView";
+import { AboutView } from "src/Presentation/AboutView";
+import { ServicesView } from "src/Presentation/ServicesView";
+
 
 
 
@@ -22,14 +25,7 @@ import { GISView } from "src/Presentation/GISView";
 //  resumeContainer.style.display = 'none';
 
 
- const resumeCopy = React.createElement('img',
- {
-  src: resume,
-  style: {
-    zIndex: 0,
-  }
- }
- );
+
 
  const familyImg = React.createElement('img',
  {
@@ -59,8 +55,7 @@ import { GISView } from "src/Presentation/GISView";
   style: {
     fontSize: '22px',
     left: '0px',
-    color: 'rgb(244, 232, 221)'
-
+    color: 'rgb(244, 232, 221)',
   }
  },
  familyImg,
@@ -86,23 +81,20 @@ import { GISView } from "src/Presentation/GISView";
  aboutParagraph7
  );
 
- const resumeContainer = React.createElement('div',{}, resumeCopy);
 
  const aboutContainer = React.createElement('div', {}, aboutCopy);
 
- const contactContainer = React.createElement('div', {}, aboutCopy);
 
 
-
-console.log(DeckGLView());
+// console.log(DeckGLView());
 export const carouselList:CarouselItem[] =
 [
-  new CreateCarouselItem(aboutContainer,'about', odin2),
+  new CreateCarouselItem(AboutView(),'about', odin2),
   new CreateCarouselItem(PDFView(),'resume', odin5),
   new CreateCarouselItem(GISView(),'gis', odin4),
   new CreateCarouselItem(ProjectsView(),'projects', odin3),
   new CreateCarouselItem(ContactView(),'contact', odin2),
-  new CreateCarouselItem('','more', odin5),
+  new CreateCarouselItem(ServicesView(),'services', odin5),
 
 
 ]

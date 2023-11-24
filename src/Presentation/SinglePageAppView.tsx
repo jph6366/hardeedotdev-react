@@ -48,6 +48,7 @@ export function SinglePageAppView ({ pageRepository }: SinglePageAppViewProps) {
           </nav>
         </ul>
     </div>
+    <p>Use the scroll wheel to rotate content or swipe left on mobile</p>
     <div className="content-container">
       <div>
         {currentCarouselItem &&

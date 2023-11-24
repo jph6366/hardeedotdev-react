@@ -6,14 +6,18 @@ import * as ReactDOM from 'react-dom/client';
 import { App } from './Main/App';
 import reportWebVitals from './reportWebVitals';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+// const store = createStore(rootReducer, applyMiddleware(thunk));
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <head>    
-      <link rel="stylesheet" href="/Widgets/widgets.css" />
-    </head>
-    <App/>
+    {/* <Provider store={} > */}
+      <App/>
+    {/* </Provider> */}
   </React.StrictMode>
 );
 

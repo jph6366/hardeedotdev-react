@@ -9,13 +9,22 @@ import cloudCompareImg from "../../assets/images/cloudcompare.png";
 
 export function DesktopGISView (imageSrc: any) {
   return (
-    <div style={{width: '100vw', height: '200px'}}>
-        <p style={{zIndex: 10000, top: '1000px', position: 'absolute',fontSize: '47px', fontFamily: 'Helvetica'}}>desktop GIS/CAD/GNSS/INS</p>
-        <img src={qgisImg} alt="" style={{width: '20vw', height: '20vh'}} />
-        <img src={esriImg} alt="" style={{width: '15vw', height: '20vh'}} />
-        <img src={cloudCompareImg} alt="" style={{width: '10vw', height: '20vh'}} />
-        <img src={lidar360Img} alt="" style={{width: '10vw', height: '20vh'}} />
-        <img src={trimbleApplanixImg} alt="" style={{width: '20vw', height: '20vh'}} />
+    <div style={{display: 'flex',flexDirection: 'row',width: '100%', height: '200px'}}>
+        <div style={{width: '20%', height: '100%'}}>
+          <a href="https://www.qgis.org/en/site/" target="_blank" rel="noreferrer"><img src={qgisImg} alt="" style={{width: '100%', height: '100%'}} /></a>
+        </div>
+        <div style={{width: '20%', height: '100%'}}>
+        <a href="https://www.esri.com/en-us/home" target="_blank" rel="noreferrer"><img src={esriImg} alt="" style={{width: '100%', height: '100%'}} /></a>
+        </div>
+        <div style={{width: '20%', height: '100%'}}>
+        <a href="https://www.danielgm.net/cc/" target="_blank" rel="noreferrer"><img src={cloudCompareImg} alt="" style={{width: '100%', height: '100%'}} /></a>
+        </div>
+        <div style={{width: '20%', height: '100%'}}>
+        <a href="https://greenvalleyintl.com/LiDAR360/" target="_blank" rel="noreferrer"><img src={lidar360Img} alt="" style={{width: '100%', height: '100%'}} /></a>
+        </div>
+        <div style={{width: '20%', height: '100%'}}>
+        <a href="https://www.applanix.com/" target="_blank" rel="noreferrer"><img src={trimbleApplanixImg} alt="" style={{width: '100%', height: '100%'}} /></a>
+        </div>
     </div>
   );
 }

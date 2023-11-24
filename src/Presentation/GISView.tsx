@@ -8,24 +8,31 @@ import { DesktopGISView } from "./GISViews/DesktopGISView";
 import { MapboxView } from "./GISViews/MapboxView";
 import cesiumImg from "../assets/images/cesium.png";
 import potreeImg from "../assets/images/potree.png";
+import { NHCGISRepository } from "../Domain/Repository/NHCGISRepository"
+import { useGISModelController } from "./hook/useGISModelController";
+import { NewHanoverCountyDataSourceImpl } from "src/Data/DataSource/NewHanoverCountyDataSourceImpl";
+import { NHCGISRepositoryImpl } from "src/Data/Repository/NHCGISRepositoryImpl";
 
 
-
+// Dependency injection
+const dataSource = new NewHanoverCountyDataSourceImpl();
+const repository = new NHCGISRepositoryImpl(dataSource)
 
 
 
 export function GISView () {
 
+
+
   return (
     <div>
-      <p style={{zIndex: 10000, top: '3%',position: 'absolute',fontSize: '23px', fontFamily: 'Helvetica'}}>A List of my frontend mapping tools</p>
         <div className="gis-view">
-            <DeckGLView/>
-            <LeafletView/>
+            <DeckGLView GISRepository={repository}/>
+            {/* <LeafletView/>
             <MapboxView/>
             <PlaceHolderView imageSrc={cesiumImg}/>
             <PlaceHolderPotreeView imageSrc={potreeImg}/>
-            <DesktopGISView/>
+            <DesktopGISView/> */}
 
         </div>
     </div>

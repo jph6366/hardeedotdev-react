@@ -6,6 +6,7 @@ import resumeImg from "../assets/documents/resume.png";
 
 
 
+
 export function PDFView () {
 
   pdfjs.GlobalWorkerOptions.workerSrc = `//cdn.jsdelivr.net/npm/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`
@@ -17,7 +18,7 @@ export function PDFView () {
         {/* <Document file={resume} >
           <Page pageNumber={1} width={400}/> 
         </Document> */}
-        <img src={resumeImg} alt=""></img>
+        <img src={resumeImg} width={'100%'} alt=""></img>
     </div>
   );
 }

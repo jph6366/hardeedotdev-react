@@ -1,4 +1,5 @@
 # Todo List
 
 - Ionic UI Components
-- Integrate Vite
+- Integrate Vite then Configure for Resium
+- 

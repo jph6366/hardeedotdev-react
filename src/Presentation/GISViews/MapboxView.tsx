@@ -2,6 +2,9 @@ import * as mapboxgl from "mapbox-gl";
 import * as React from "react";
 
 const mapbox: any = mapboxgl;
+// @ts-ignore
+// eslint-disable-next-line import/no-webpack-loader-syntax
+mapboxgl.workerClass = require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
 
 mapbox.accessToken = 'pk.eyJ1IjoianBoYXJkZWUiLCJhIjoiY2xtNWNlMjdoMWJ6ZjNqcGVnN2owNWJ5eSJ9.trEHgsN494JdazudhLyL_w';
 
@@ -27,7 +30,7 @@ export function MapboxView () {
 
   return (
     <div>
-        <div ref={mapContainer} className="map-container" style={{height: '200px'}}/>
+        <div ref={mapContainer} className="map-container" style={{border: 'dashed',height: '200px'}}/>
     </div>
   );
 }
