@@ -2,6 +2,12 @@ import * as React from "react";
 import { PageAppRepository } from "../Domain/Repository/PageAppRepository";
 import { useSinglePageAppModelController } from "./hook/useSinglePageAppModelController";
 import { ContentView } from "./ContentView";
+import { TutorialView } from "./TutorialView";
+import { GSAPView } from "./GSAPView";
+import { NavigatorView } from "./NavigatorView";
+import toast from "react-hot-toast";
+
+
 
 type SinglePageAppViewProps = {
   pageRepository: PageAppRepository;
@@ -13,22 +19,30 @@ export function SinglePageAppView ({ pageRepository }: SinglePageAppViewProps) {
     currentCarouselItem, 
     setupCarousel,
     handleOnWheelRotateCarousel,
+    handleOnClickHideCarousel,
     handleOnMouseUpCarousel,
     handleOnMouseDownCarousel,
     handleOnTouchStartCarousel,
     handleOnTouchMoveCarousel,
     handleMouseMoveParallaxEffect,
     handleMouseLeaveParallaxEffect,
-    handleMouseEnterParallaxEffect } =
+    handleMouseEnterParallaxEffect,
+    handleOnClickNavigator } =
   useSinglePageAppModelController(pageRepository);
+
+  var navContext = [];
 
     setTimeout(() => {
       setupCarousel();
     });
 
+
   return (
-    <div>
-    <div className="carousel-container"
+    <div style={{
+      display: 'flex'
+    }}>
+    <NavigatorView onClick={handleOnClickNavigator} context={currentPageApp} selection={currentCarouselItem} />
+    <div   className="carousel-container"
           onMouseDown={handleOnMouseDownCarousel}
           onMouseUp={handleOnMouseUpCarousel} 
           onTouchStart={handleOnTouchStartCarousel}
@@ -48,8 +62,21 @@ export function SinglePageAppView ({ pageRepository }: SinglePageAppViewProps) {
           </nav>
         </ul>
     </div>
-    <p>Use the scroll wheel to rotate content or swipe left on mobile</p>
-    <div className="content-container">
+    {/* <GSAPView/> */}
+    <br/>
+    <br/>
+    <br/>
+    {/* <button onClick={handleOnClickHideCarousel} id="hideBtn" >Hide</button> */}
+
+    <TutorialView />
+
+    <div className="content-container"
+    style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      flexDirection: 'column',
+    }}>
       <div>
         {currentCarouselItem &&
       <div>

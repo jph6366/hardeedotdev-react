@@ -101,6 +101,21 @@ export function useSinglePageAppModelController(pageRepository: PageAppRepositor
 
     // }
 
+    const handleOnClickHideCarousel = (event: React.MouseEvent<HTMLElement>) => {
+        const carouselContainer: HTMLElement = document.querySelector('.carousel-container');
+        const hideBtn = document.getElementById('hideBtn');
+
+
+        // Toggle the visibility of the content div
+    if (carouselContainer.style.display !== 'none') {
+        carouselContainer.style.display = 'none';
+        hideBtn.textContent = 'Show Navigation'; // Change button text to 'Show'
+      } else {
+        carouselContainer.style.display = 'block';
+        hideBtn.textContent = 'Hide'; // Change button text back to 'Hide'
+      }
+    }
+
     const handleOnWheelRotateCarousel = async (event: React.WheelEvent<HTMLUListElement>) => {
 
         const carouselItems = document.querySelectorAll('.carousel-item');
@@ -113,7 +128,6 @@ export function useSinglePageAppModelController(pageRepository: PageAppRepositor
         numImages = figure.childElementCount,
         theta =  2 * Math.PI / numImages
         ;
-        var apothem =  (200 / (2 * Math.tan(Math.PI / numImages)));
 
 
 
@@ -246,7 +260,7 @@ export function useSinglePageAppModelController(pageRepository: PageAppRepositor
         console.log("minus " + lastTouchX);
         const rotationDelta = (currentTouchX - lastTouchX);
         console.log("delta " + rotationDelta);
-        rotationAngle+=rotationDelta;
+        rotationAngle+=(rotationDelta/10);
 
         setTouchAngle(rotationAngle);
 
@@ -317,12 +331,10 @@ export function useSinglePageAppModelController(pageRepository: PageAppRepositor
                     selectedIndex = carouselItems.length + currentPageApp.contentIndex;
                 }        
             }
-            console.log("s " + selectedIndex);
             carouselItems[selectedIndex].classList.add('selected');
             setCurrentCarouselItem(currentPageApp.carousel.itemList.at(selectedIndex))
             }
             rotationIndex = Math.floor(Math.abs(rotationAngle) / -60);
-            console.log("floor pos " + Math.floor(Math.abs(rotationAngle) / -60));
 
         }
 
@@ -334,18 +346,26 @@ export function useSinglePageAppModelController(pageRepository: PageAppRepositor
 
     };
 
+    const handleOnClickNavigator = async (event: React.MouseEvent<HTMLElement>) => {
+        var navClick = event.target as any
+        if( navClick.innerHTML.length < 10) setCurrentCarouselItem(currentPageApp.carousel.itemList.find(i => i.title === navClick.innerHTML))
+    };
+    
+
     return {
         currentPageApp,
         currentCarouselItem,
         setupCarousel,
         handleOnWheelRotateCarousel,
+        handleOnClickHideCarousel,
         handleOnMouseUpCarousel,
         handleOnMouseDownCarousel,
         handleOnTouchStartCarousel,
         handleOnTouchMoveCarousel,
         handleMouseMoveParallaxEffect,
         handleMouseLeaveParallaxEffect,
-        handleMouseEnterParallaxEffect
+        handleMouseEnterParallaxEffect,
+        handleOnClickNavigator
     }
 
 

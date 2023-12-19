@@ -7,7 +7,9 @@ export function ServicesView () {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      flexDirection: 'column'
+      flexDirection: 'column',
+      color: 'rgb(244, 232, 221)', 
+      fontFamily: 'Helvetica'
     }}>
       <div>
         <h3>Email me at jphardee@gmail.com for direct consultation with the Subject:  HARDEEDOTDEV</h3>

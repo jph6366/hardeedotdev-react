@@ -1,9 +1,8 @@
 
-// @TODO techinical debt: adding pre/post-processing to css (now scss)
+
 /* width */
 ::-webkit-scrollbar {
-    width: 10dvw;
-
+    width: 5dvw;
   }
   
   /* Track */
@@ -14,7 +13,7 @@
    
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: white; 
+    background: radial-gradient(circle at top, #050100 10%, #83b6b8 70%,  #83b6d7 90%); /* change the background color asS needed */
     border-radius: 10px;
   }
   
@@ -23,9 +22,29 @@
     background: wheat; 
   }
 
+
+  @-webkit-keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+  
+
 body {
-    background-color: #83b6d7; /* change the background color asS needed */
+    // background-color: #83b6d7; /* change the background color as needed */
+    background: radial-gradient(circle at top, #050100 10%, #83b6b8 20%,  #83b6d7 70%); /* change the background color asS needed */
+    background-size: auto 2000%;
     overscroll-behavior-x: none;
+    overflow-x: hidden;
+    font-family: 'Helvetica';
 }
 
     $n: 6; // Number of images
@@ -35,10 +54,90 @@ body {
 
     // Derived variables
     $theta: calc( 2 * 3.141592653589793 / $n);
+
+
+    .arrow {
+        width: 0;
+        height: 0;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-bottom: 30px solid #000;
+        position: absolute;
+        top: 40%; /* Initial vertical position */
+        left: 50%; /* Initial horizontal position */
+        rotate: 25deg;
+        transform: translate(-50%, -50%); /* Center the arrow */
+      }
+
+      #hideBtn {
+        position: absolute;
+        z-index: 10000;
+        font-size: 40px;
+        font-family: Helvetica;
+    }
+
+    .tutorial{
+        z-index: 10000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        position: absolute;
+        top: 90%;
+        left: 20%;
+    }
+    /* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    z-index: 10000;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 10dvh;
+    width: 5dvw;
+    left: 2dvw;
+    bottom: 2dvh;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color:  #83b6b8;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #91c9f6;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(8dvw);
+    -ms-transform: translateX(8dvw);
+    transform: translateX(11dvw);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+      
     
     .carousel-container {
-        display: flex;
-        position: sticky;
+        position: relative;
         z-index: 1;
         flex-direction: column;
         justify-content: center;
@@ -53,7 +152,8 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 100vw;
+        margin-top: 13%;
+        width: 100dvw;
         
 
     > * {
@@ -64,15 +164,23 @@ body {
             margin: 0;
             transform-style: preserve-3d;
             -webkit-transition: transform .5s ease;;
-            width: 100vw;
+            backface-visibility:hidden;
+        
+
+            
+            
 
 
             
 
             .carousel-item {
-                width: 100vw;
+                width: 100dvw;
                 box-sizing: border-box;
                 padding: 0 calc($item-separation / 2);
+                backface-visibility: hidden;
+
+                
+
 
 
 
@@ -103,8 +211,7 @@ body {
                 img {
                     width: $item-width;
                     transform-style: preserve-3d;
-                    // overflow: visible;
-                    // transform-origin: 50% 50% $apothem;
+                    
                 }
 
 
@@ -137,20 +244,13 @@ body {
     .content-container {
         z-index: 1;
         position: absolute;
-        top: 65%;
+        top: 95%;
+        margin-top: 10%;
 
     }
 
 
 
-    .carousel-list:hover .carousel-item.selected  {
-        //   -webkit-transform: scale(1.4);
-        //       -ms-transform: scale(1.4);
-                  transform: scale(1.4);
-                    transform-style: preserve-3d;
-                    // overflow: hidden;
-                    // width:  $item-width*1.5;
-        }
         .carousel-item p {
             // transform-origin: 50% 50% 0;
             color: rgb(244, 232, 221);
@@ -164,18 +264,48 @@ body {
 
             overflow: visible;
             position: absolute; 
-            font-size: 70px;
+            font-size: 200px;
             left: -420px;
-            bottom: -10%;
+            bottom: -80%;
             color: rgb(244, 232, 221);
             transform: translateX(500px) translateY(180px);
         }
 
+        @keyframes gradientAnimation {
+            0% {
+              background-position: 10% 50%;
+            }
+            50% {
+              background-position: 300% 50%;
+            }
+            100% {
+              background-position: 0% 50%;
+            }
+          }
 
-
-        .leaflet-view {
-
+        .carousel-list:hover {  
+ 
         }
+
+        .carousel-list:hover .carousel-item.selected{
+            backface-visibility: visible;
+        }
+
+        .carousel-list:hover .carousel-item.selected img{
+            -webkit-transform: scale(1.4);
+                -ms-transform: scale(1.4);
+                    transform: scale(1.4);
+
+                  
+          }
+
+          .carousel-item.selected img {
+            border: 24px solid turquoise; /* Adjust border thickness and color as desired */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+            transition: border-color 0.3s ease-in-out; /* Adds a smooth transition effect */
+
+
+          }
 
         .gis-view {
             display: grid;
@@ -185,14 +315,50 @@ body {
 @media (width <= 420px) {
         // Carousel configuration parameters
     $n: 6; // Number of images
-    $item-width:100px; // Width of an image. In the Js version this value can be a percentage
+    $item-width:200px; // Width of an image. In the Js version this value can be a percentage
     $item-separation: 90px; // The space between the images. This will decrease the effective item width
-    $viewer-distance: 300px;
+    $viewer-distance: 600px;
 
     // Derived variables
     $theta: calc( 2 * 3.141592653589793 / $n);
 
+    body {
+        // background-color: #83b6d7; /* change the background color as needed */
+        background: radial-gradient(circle at top, #050100 .1%, #83b6b8 10%,  #83b6d7 70%); /* change the background color asS needed */
+        background-size: auto 2000%;
+        // overscroll-behavior-x:none;
+        overflow-x: hidden;
+    }
 
+    #hideBtn {
+        font-size: 20px;
+        top: 60dvh;
+    }
+
+
+    .tutorial{
+        z-index: 10000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        position: absolute;
+        top: 80%;
+        left: 20%;
+    }
+      
+
+    .arrow {
+        z-index: 100000;
+        width: 0;
+        height: 0;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-bottom: 30px solid #000;
+        position: absolute;
+        top: 20%; /* Initial vertical position */
+        left: 50%; /* Initial horizontal position */
+      }
 
 
     .carousel-container {
@@ -203,7 +369,9 @@ body {
         justify-content: center;
         user-select: none;
         cursor: crosshair;
-        overflow: hidden;
+        overflow: visible;
+        touch-action: none;
+
     }
 
 
@@ -213,7 +381,11 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 100vw;
+        // position: absolute;
+        width: 100dvw;
+        // left: 0%;
+        // top:100%;
+        
 
     > * {
         flex: 0 0 auto;
@@ -224,7 +396,8 @@ body {
             transform-style: preserve-3d;
             -webkit-transition: transform .5s ease;;
             width: 100vw;
-
+            
+            
 
             
 
@@ -232,6 +405,9 @@ body {
                 width: 100vw;
                 box-sizing: border-box;
                 padding: 0 calc($item-separation / 2);
+                backface-visibility: hidden;
+
+
 
 
 
@@ -240,8 +416,9 @@ body {
                 img {
                     width: $item-width;
                     transform-style: preserve-3d;
-                    // overflow: visible;
-                    // transform-origin: 50% 50% $apothem;
+
+
+
                 }
 
 
@@ -269,7 +446,7 @@ body {
         display: flex;
         flex-direction: row;
         position: absolute;
-        top: 25%;
+        top: 85%;
         overflow: hidden;
     }
 
@@ -291,11 +468,13 @@ body {
         position: absolute; 
         font-size: 50px;
         left: 0;
-        bottom: 40px;
+        bottom: -25%;
         color: rgb(244, 232, 221);
         transform: translateX(60px) translateY(100px);
         overflow: visible;
         visibility: visible;
+        display:initial;
+
 
     }
 
@@ -305,6 +484,7 @@ body {
         font-size: 50px;
         bottom: 0%;
         align-content: center;
+        display: none;
 
     }
 }   

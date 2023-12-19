@@ -17,7 +17,7 @@ export class LeafletView extends React.Component {
 
         return            <div>
                 <p style={{zIndex: 10000, position: 'absolute',fontSize: '47px', fontFamily: 'Helvetica'}}>leaflet</p>
-                <MapContainer style={{width: '100vw', height: '200px', border: 'dashed'}} center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
+                <MapContainer style={{width: '100vw', height: '200px', border: 'dashed'}} center={[34.074033,-78.2395284]} zoom={8} scrollWheelZoom={false}>
                         <TileLayer
                             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

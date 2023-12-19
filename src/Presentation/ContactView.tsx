@@ -1,8 +1,12 @@
 import * as React from "react";
-import contact from "../assets/images/contact.jpg";
+import contact from "../assets/images/odin1.jpg";
+import toast from "react-hot-toast";
 
 
 export function ContactView () {
+
+  const notify = () => toast('This is my pug dog, Odin');
+
 
   return (
     <div style={{
@@ -17,7 +21,7 @@ export function ContactView () {
       borderRadius: '50%' ,
       overflow: 'hidden'
     }}>
-        <img style={{
+        <img onClick={notify} style={{
            maxWidth: '100%',
            maxHeight: '100%'
         }} src={contact} alt=""></img>

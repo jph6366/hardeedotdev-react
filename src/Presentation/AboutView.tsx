@@ -1,8 +1,14 @@
 import * as React from "react";
 import family from "../assets/images/family.jpg";
+import toast from 'react-hot-toast';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faScroll, faGraduationCap ,faBoxesStacked, faHouse, faFeather, faC, faHashtag, faV, faB, faLeaf, faBolt, faHorse, faHorseHead, faXmark, faCloud, faAnchor, faShip, faBox, faBookAtlas, faGlobe, faCompass, faCompassDrafting, faMapLocationDot, faEarthOceania, faEarthAfrica, faEarthAmerica, faEarthAsia, faEarthEurope, faLocationArrow, faStreetView, faRoad, faHandPeace, faCodeMerge, faDharmachakra, faTerminal } from '@fortawesome/free-solid-svg-icons';
+import { faAngular, faAws, faCloudflare, faDocker, faEvernote, faGithub, faGitlab, faJira, faLinux, faMicrosoft, faNodeJs, faPython, faReact, faVuejs, faWindows } from '@fortawesome/free-brands-svg-icons';
 
 
 export function AboutView () {
+
+  const notify = () => toast('This is my family!');
 
   return (
     <div style={{
@@ -11,42 +17,140 @@ export function AboutView () {
       alignItems: 'center',
       flexDirection: 'column'
     }}>
-        <img style={{
+        <img onClick={notify} style={{
            maxWidth: '100%',
            maxHeight: '100%'
         }} src={family} alt=""></img>
         <p style={{
-          fontSize: '22px',
+          fontSize: '32px',
           color: 'rgb(244, 232, 221)',
           width: '80%'
           }}>
-        I am Born and raised in Wilmington, NC, USA. I performed well in most subjects in school and ended up in the top 30 of high school graduating class. I was confident that I was going to study Computer Science in college. I had found success in computers, software, and graphic design in high school. I initiated my software engineering experience using Adobe products like Adobe Photoshop and Adobe Dreamweaver creating simple Graphics, HTML/CSS, and vanilla JS. I took my skills and applied myself in my father's real estate office (and part-time at a pizzeria) managing their prospective client database (10,000-30,000 entries) and providing graphic design and technical intern services (printing, mailing, organizing, OS troubleshooting). In the office I picked up Python scripting to automate filtering and wrangling excel data entries using csv or xlsx files. I also managed to enroll in dual enrollment at the local community college (Cape Fear Community College) in my last two years of high school collecting college credit.
+
+
+            
+<FontAwesomeIcon icon={faTerminal} size="3x"/>
+<br/>
+I have primarily worked in proprietary and open source platforms providing software expertise in 
+geospatial analysis & processing, greenfielding, driven development, architecture, scaling, optimization, and customer success. 
+I'm an experienced GIS, Full Stack, and Web developer that can handle backend, frontend, and deployment
+work and regularly practice agile methodologies. I am seeking experience in industries
+like Emergency Management Services, Robotics, and Open Source.
 
 <br/>
 <br/>
+
+
+       <FontAwesomeIcon icon={faHouse} size="4x"/> Wilmington, NC, USA 
+       <br/>
 <br/>
-I studied towards a baccalaureate degree in Computer Science at University of North Carolina at Wilmington with Python being the primary programming language. After two years at UNCW I transferred to the University of North Carolina at Chapel Hill studying towards the same degree in Computer Science.
+       <FontAwesomeIcon icon={faGraduationCap} size="4x"/> University of North Carolina at Chapel Hill 
+       <br/>
 <br/>
+       <FontAwesomeIcon icon={faScroll} size="4x"/> Bachelor's in Computer Science and Minor in Geographic Information Systems 
+       <br/>
 <br/>
+<h2> <FontAwesomeIcon icon={faBoxesStacked} size="4x"/> Tech Stacks</h2>
+       <br/>
+       <br/>
+       <br/>
+
+       <FontAwesomeIcon icon={faLinux} size="3x"/>
+       &nbsp;&nbsp;
+       <FontAwesomeIcon icon={faMicrosoft} size="3x"/>
+       &nbsp;&nbsp;
+       <FontAwesomeIcon icon={faFeather}  size="3x"/>
+       &nbsp;&nbsp;
+       <FontAwesomeIcon icon={faEvernote} size="3x"/>
+       &nbsp;&nbsp;
+       <FontAwesomeIcon icon={faPython} size="3x"/>
+       <br/>
+
+      <h3>Linux/Windows + Apache + PostgreSQL + Python</h3>
+      <br/>
+
+      <FontAwesomeIcon icon={faHorseHead} size="3x"/>
+       <FontAwesomeIcon icon={faEvernote}  size="3x"/>
+       <FontAwesomeIcon icon={faVuejs} size="3x"/>
+       &nbsp;&nbsp;
+       <FontAwesomeIcon icon={faXmark} size="3x"/>
+       <FontAwesomeIcon icon={faHorse} size="3x"/>
+
+       <br/>
+
+      <h3>Django + PostgreSQL + Vue.js + Nginx/Gunicorn</h3>
+      <br/>
+
+      <FontAwesomeIcon icon={faLeaf} size="3x"/>
+       <FontAwesomeIcon icon={faBolt}  size="3x"/>
+       <FontAwesomeIcon icon={faAngular} size="3x"/>
+       &nbsp;&nbsp;&nbsp;
+       <FontAwesomeIcon icon={faReact} size="3x"/>
+       &nbsp;&nbsp;
+       <FontAwesomeIcon icon={faNodeJs} size="3x"/>
+       <br/>
+       
+
+      <h3>MongoDB + Express.js + Angular \ React + Node.js</h3>
+      <br/>
+
+      <FontAwesomeIcon icon={faC} size="3x"/>
+      <FontAwesomeIcon icon={faHashtag} size="3x"/>
+      &nbsp;&nbsp;&nbsp;
+      <FontAwesomeIcon icon={faV} size="3x"/>
+      <FontAwesomeIcon icon={faB} size="3x"/>
+      &nbsp;&nbsp;&nbsp;
+      <FontAwesomeIcon icon={faWindows} size="3x"/>
+      &nbsp;&nbsp;
+       <FontAwesomeIcon icon={faEvernote}  size="3x"/>
+       &nbsp;&nbsp;
+       <br/>
+
+      <h3>C# \ Visual Basic, .NET Core + PostgreSQL</h3>
+
+      <br/>
+
+      <h2> <FontAwesomeIcon icon={faBox}  size="4x"/> Containerization & Orchestration</h2>
+      <FontAwesomeIcon icon={faDocker} size="3x"/>
+      &nbsp;&nbsp;&nbsp;
+      <FontAwesomeIcon icon={faShip} size="3x"/>
+      &nbsp;&nbsp;&nbsp;
+      <FontAwesomeIcon icon={faDharmachakra} size="3x"/>
+
+
+      <br/>
+
+      
+<h3>Docker + Helm + Kubernetes</h3>
+
 <br/>
 
-I took courses in accessible software in subjects like Web Development, Files & Databases, Mobile Sensing & Inference Systems, Programming Languages, and Software Engineering
-<br/>
-<br/>
-<br/>
 
-At the start of my professional software engineering career, I was employed as a Customer Success Intern at nCino in Wilmington, NC. Here at nCino I was tasked with becoming an expert in Salesforce and the nCino domain writing code in Apex and queries in SOQL/SOSL. I performed really well in debugging problems among the customer success team, while also maintaining routine work of automating forms, testing logic, and building UI. 
-<br/>
-<br/>
-<br/>
+      <h2> <FontAwesomeIcon icon={faCloud}  size="4x"/> Cloud Providers</h2>
+      <FontAwesomeIcon icon={faAws} size="3x"/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <FontAwesomeIcon icon={faMicrosoft} size="3x"/>
 
-In my last full-time job, I worked as a Mapping Software Engineer at DEKA Research & Development in Manchester, NH. I joined the mapping team and initially worked as a Python developer writing DAG scripts for ETL pipelines processing large collections (billions of points) of 3D point clouds. In my time on the mapping team I incorporated Multiprocessing, Geospatial Concepts, and Distribution as well as contributing to other mapping products. I was moved to the Full Stack Web Development team where we were tasked to develop a client-facing web app that has a list of capabilities including microservices, routing, AVLs, alert system, web maps, real time communication, video & audio streaming, and comprehensive testing. In my career so far, I have gained expertise in Python, Java, Typescript & Javascript, Full-Stack development, Web Development, RDBMS, Enterprise SaaS, Production & DevOps, and more requested features for enhanced feasibility and consistent stability.
-<br/>
-<br/>
-<br/>
+      <br/>
+      
 
-I have primarily worked on Web and Desktop Applications, Enterprise SaaS, and Geospatial Design, resolving mostly frontend, data mgmt & integration, system design, and testing goals. Now I am seeking more experience as a Software Developer/Engineer working with Large-Scale Real-Time Information Management Systems that rely on critical response, and creating human-machine interfaces for professional, governmental, strategic, tactical, and public systems of geospatial data.
+<h3>AWS, Microsoft Azure</h3>
 
+<br/>
+<h2> <FontAwesomeIcon icon={faCodeMerge}  size="4x"/> DevOps Platforms</h2>
+      <FontAwesomeIcon icon={faGitlab} size="3x"/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <FontAwesomeIcon icon={faGithub} size="3x"/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <FontAwesomeIcon icon={faCloudflare} size="3x"/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <FontAwesomeIcon icon={faJira} size="3x"/>
+
+
+      <br/>
+      
+
+<h3>GitLab, GitHub, Cloudflare, Jira</h3>
 
         </p>
     </div>

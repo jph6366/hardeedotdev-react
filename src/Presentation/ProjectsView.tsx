@@ -4,7 +4,7 @@ export function ProjectsView () {
 
   return (
     <div>
-        <ul>
+        <ul style={{color: 'rgb(244, 232, 221)', fontFamily: 'Helvetica'}}>
             <li style={{fontSize: '47px', fontFamily: 'Helvetica'}}>CRT Simulation WebAssembly Module</li>
             <h3>Research</h3>
             <a href="https://github.com/viler-int10h/FFmpeg-CRT-transform" style={{fontSize: '23px', fontFamily: 'Helvetica'}}>FFmpeg CRT Transform, </a>
