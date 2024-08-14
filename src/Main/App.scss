@@ -43,7 +43,7 @@ body {
     background: radial-gradient(circle at top, #050100 10%, #83b6b8 20%,  #83b6d7 70%); /* change the background color asS needed */
     background-size: auto 2000%;
     overscroll-behavior-x: none;
-    overflow-x: hidden;
+    // overflow-x: hidden;
     font-family: 'Helvetica';
 }
 
@@ -55,7 +55,40 @@ body {
     // Derived variables
     $theta: calc( 2 * 3.141592653589793 / $n);
 
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(8, 7dvw); /* Adjust width of each column */
+        grid-template-rows: repeat(8, 13dvh); /* Adjust height of each row */
+        gap: 1px; /* Adjust the gap between grid items */
 
+    }
+    
+    .grid-item{
+        border: 1px solid white; /* Border color and width of grid items */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem; /* Adjust font size of content */
+    }
+
+    .edge-item img{
+        border: 1px solid white; /* Border color and width of grid items */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem; /* Adjust font size of content */
+
+    }
+
+    .grid-container .grid-item{
+        overflow:hidden;
+        
+    }
+
+    .carousel-title {
+        color: white;
+    }
+    
     .arrow {
         width: 0;
         height: 0;
@@ -312,7 +345,7 @@ body {
         }
         
 
-@media (width <= 420px) {
+@media (width <= 800px) {
         // Carousel configuration parameters
     $n: 6; // Number of images
     $item-width:200px; // Width of an image. In the Js version this value can be a percentage
@@ -328,6 +361,15 @@ body {
         background-size: auto 2000%;
         // overscroll-behavior-x:none;
         overflow-x: hidden;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(8, 14dvw); /* Adjust width of each column */
+        grid-template-rows: repeat(8, 14dvh); /* Adjust height of each row */
+        gap: 1px; /* Adjust the gap between grid items */
+        width: 100dvw;
+        height: 100dvh;
     }
 
     #hideBtn {

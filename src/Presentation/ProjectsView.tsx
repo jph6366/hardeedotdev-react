@@ -15,9 +15,6 @@ export function ProjectsView () {
             <a href="https://victorribeiro.com/CRT/" style={{fontSize: '23px', fontFamily: 'Helvetica'}}>CRT Converter for Images</a>
             <li style={{fontSize: '47px', fontFamily: 'Helvetica'}}>Contributing to the  <a href="https://openises.sourceforge.net/about.html" style={{fontSize: '47px', fontFamily: 'Helvetica'}}>Open ISES Project</a></li>
             <a href="https://groups.google.com/g/open-source-cad?pli=1" style={{fontSize: '23px', fontFamily: 'Helvetica'}}><h3>Discussion</h3></a>
-            <li style={{fontSize: '47px', fontFamily: 'Helvetica'}}>Developing Open Source Software for Florists</li>
-            <h3>Order Management * Production Tracking * Delivery Tracking * Routing</h3>
-            <h2>Current Proprietary Solutions: FTD Mercury, FloraNext, BloomNation, FlowerManager, and many more</h2>
         </ul>
     </div>
   );

@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Document, Page, pdfjs,  } from "react-pdf";
 import resume from "../assets/documents/resume.pdf";
-import resumeImg from "../assets/documents/resume.png";
 
 
 
@@ -13,12 +12,11 @@ export function PDFView () {
 
 
   return (
-    <div style={{display: 'flex', flexDirection: 'row'}}>
+    <div style={{display: 'flex', flexDirection: 'row', width: '100dvw', height: '790px', overflow: 'hidden'}}>
       <a target="_blank" href="  https://www.overleaf.com/read/trqgxytxrrjs">view resume</a>
-        {/* <Document file={resume} >
-          <Page pageNumber={1} width={400}/> 
-        </Document> */}
-        <img src={resumeImg} width={'100%'} alt=""></img>
+        <Document file={resume} >
+          <Page pageNumber={1}/> 
+        </Document>
     </div>
   );
 }

@@ -4,6 +4,9 @@ import { useSinglePageAppModelController } from "./hook/useSinglePageAppModelCon
 import { ContentView } from "./ContentView";
 import { TutorialView } from "./TutorialView";
 import { GSAPView } from "./GSAPView";
+import { MorvilView } from "./MorvilView";
+import { Morvil2View } from "./Morvil2View";
+import { MorvilMobileView } from "./MorvilMobileView";
 import { NavigatorView } from "./NavigatorView";
 import toast from "react-hot-toast";
 
@@ -30,10 +33,25 @@ export function SinglePageAppView ({ pageRepository }: SinglePageAppViewProps) {
     handleOnClickNavigator } =
   useSinglePageAppModelController(pageRepository);
 
+  const [windowWidth, setWindowWidth] = React.useState(window.innerWidth);
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  })
+
+
   var navContext = [];
 
     setTimeout(() => {
-      setupCarousel();
+      // setupCarousel();
     });
 
 
@@ -41,8 +59,16 @@ export function SinglePageAppView ({ pageRepository }: SinglePageAppViewProps) {
     <div style={{
       display: 'flex'
     }}>
-    <NavigatorView onClick={handleOnClickNavigator} context={currentPageApp} selection={currentCarouselItem} />
-    <div   className="carousel-container"
+    {/* <NavigatorView onClick={handleOnClickNavigator} context={currentPageApp} selection={currentCarouselItem} /> */}
+    {/* <MorvilView pageRepository={pageRepository}></MorvilView> */}
+    {windowWidth >= 420 ? (
+    <Morvil2View pageRepository={pageRepository}></Morvil2View>
+    ) : (
+      <MorvilMobileView pageRepository={pageRepository}></MorvilMobileView>
+    )
+    }
+
+    {/* <div   className="carousel-container"
           onMouseDown={handleOnMouseDownCarousel}
           onMouseUp={handleOnMouseUpCarousel} 
           onTouchStart={handleOnTouchStartCarousel}
@@ -61,14 +87,13 @@ export function SinglePageAppView ({ pageRepository }: SinglePageAppViewProps) {
               </figure>
           </nav>
         </ul>
-    </div>
+    </div> */}
     {/* <GSAPView/> */}
     <br/>
     <br/>
     <br/>
     {/* <button onClick={handleOnClickHideCarousel} id="hideBtn" >Hide</button> */}
 
-    <TutorialView />
 
     <div className="content-container"
     style={{
@@ -78,7 +103,7 @@ export function SinglePageAppView ({ pageRepository }: SinglePageAppViewProps) {
       flexDirection: 'column',
     }}>
       <div>
-        {currentCarouselItem &&
+        {/* {currentCarouselItem &&
       <div>
         <div  className="carousel-title">
           <p>
@@ -87,7 +112,7 @@ export function SinglePageAppView ({ pageRepository }: SinglePageAppViewProps) {
           </div>
           <ContentView  contentItem={currentCarouselItem}/>
         </div>
-        }
+        } */}
       </div>
     </div>
     </div>

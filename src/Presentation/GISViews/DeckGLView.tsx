@@ -1,11 +1,11 @@
 import * as React from "react";
 import DeckGL from '@deck.gl/react';
 import { GeoJsonLayer } from "@deck.gl/layers";
-import { LineLayer } from "@deck.gl/layers";
-import { ArcLayer } from "@deck.gl/layers";
 import { NHCGISRepository } from "src/Domain/Repository/NHCGISRepository";
 import { useGISModelController } from "../hook/useGISModelController";
 import { FirestationGeoJson } from "./DeckGL/FirestationGeoJson";
+import {GoogleMapsOverlay as DeckOverlay} from '@deck.gl/google-maps';
+
 
 type GISViewProps = {
   GISRepository: NHCGISRepository;
@@ -65,7 +65,7 @@ const MUNINCIPALITIES =
     <div className="deckGL-view" style={{width: '100vw', height: '200px', }}>
         <p style={{zIndex: 10000, position: 'absolute',fontSize: '47px', fontFamily: 'Helvetica'}}>deck.gl</p>
         <DeckGL 
-        style={{width: '90vw', height: '300px', border: 'dashed'}} 
+        style={{width: '90vw', position: 'relative', height: '300px', border: 'dashed'}} 
         controller={true} 
         initialViewState={INITIAL_VIEW_STATE}
         >

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import "./App.scss";
 
+
 import { SinglePageAppView } from '../Presentation/SinglePageAppView';
 import { InMemoryDataSourceImpl } from '../Data/DataSource/InMemoryDataSourceImpl';
 import { PageAppRepositoryImpl } from '../Data/Repository/PageAppRepositoryImpl';
