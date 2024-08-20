@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Document, Page, pdfjs,  } from "react-pdf";
-import resume from "../assets/documents/resume.pdf";
+import resume from "../assets/documents/Jhardee_Resume_Cesium.pdf";
 
 
 
