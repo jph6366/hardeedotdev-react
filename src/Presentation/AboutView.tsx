@@ -29,7 +29,7 @@ export function AboutView () {
 
 
             
-<FontAwesomeIcon icon={faTerminal} size="2x"/> GIS, Full Stack, and Web developer
+<FontAwesomeIcon icon={faTerminal} size="2x"/> Full Stack & Mapping Software Engineer
 
 <br/>
 
@@ -40,12 +40,17 @@ export function AboutView () {
        <FontAwesomeIcon icon={faHouse} size="2x"/> Wilmington, NC, USA 
        <br/>
 <br/>
+       
        <FontAwesomeIcon icon={faGraduationCap} size="2x"/> University of North Carolina at Chapel Hill 
        <br/>
-<br/>
-       <FontAwesomeIcon icon={faScroll} size="2x"/> Bachelor's in Computer Science and Minor in Geographic Information Systems 
+       <FontAwesomeIcon icon={faGraduationCap} size="2x"/> University of North Carolina at Wilmington
+       <br/>
+       <br/>
+       <FontAwesomeIcon icon={faScroll} size="2x"/> Bachelor's in Computer Science        <br/>
+Geographic Information Systems Minor
        <br/>
 <br/>
+I am a full stack engineer with a strong geospatial foundation. I write APIs, frontend applications, performant backend code, and rendering 2D and 3D graphics. I spent 2 years studying GIS analysis & programming and 2 years professionally practicing mapping & full stack software engineering.
 </p>
 
     </div>
