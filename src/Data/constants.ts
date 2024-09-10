@@ -1,17 +1,15 @@
 import { CarouselItem, CreateCarouselItem } from "../Domain/Model/Carousel"
-import odin4 from "../assets/images/odin4.jpg";
-import odin3 from "../assets/images/odin3.jpg";
-import odin2 from "../assets/images/odin2.jpg";
+import odin1 from "../assets/images/odin4-resize.jpg";
+import odin4 from "../assets/images/odin3-resize.jpg";
+import odin3 from "../assets/images/odin2-resize.jpg";
 import odin5 from "../assets/images/odin5.jpg";
-import odin1 from "../assets/images/odin1.jpg";
+import odin2 from "../assets/images/odin1-resize.jpg";
 import resume from "../assets/documents/resume.png";
 import family from "../assets/images/family.jpg";
 import * as React from "react";
 import { PDFView } from "../Presentation/PDFView";
 import { ContactView } from "src/Presentation/ContactView";
-import { DeckGLView } from "src/Presentation/GISViews/DeckGLView";
 import { ProjectsView } from "src/Presentation/ProjectsView";
-import { GISView } from "src/Presentation/GISView";
 import { AboutView } from "src/Presentation/AboutView";
 import { ServicesView } from "src/Presentation/ServicesView";
 
@@ -90,8 +88,8 @@ import { ServicesView } from "src/Presentation/ServicesView";
 export const carouselList:CarouselItem[] =
 [
   new CreateCarouselItem(AboutView(),'about', odin2),
-  new CreateCarouselItem(PDFView(),'resume', odin5),
-  new CreateCarouselItem(GISView(),'gis', odin4),
+  new CreateCarouselItem(PDFView(),'resume', odin1),
+  new CreateCarouselItem(ProjectsView(),'gis', odin4),
   new CreateCarouselItem(ProjectsView(),'projects', odin3),
   new CreateCarouselItem(ContactView(),'contact', odin2),
   new CreateCarouselItem(ServicesView(),'services', odin5),

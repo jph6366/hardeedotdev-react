@@ -134,10 +134,9 @@ export function Morvil2View ({ pageRepository }: SinglePageAppViewProps) {
                 position: 'relative',
               backgroundColor: 'black',
               overflow: 'hidden',
-              height:'100%',
-              width:'100%'
+
             }}>
-            <img  onClick={() => content.current.scrollIntoView({ behavior: "smooth"})} height={'100%'}  width={'100%'}  src={currentPageApp?.carousel.itemList[0].image}></img>
+            <img  onClick={() => content.current.scrollIntoView({ behavior: "smooth"})}  src={currentPageApp?.carousel.itemList[0].image}></img>
             </div>
             </a>
 
@@ -147,12 +146,9 @@ export function Morvil2View ({ pageRepository }: SinglePageAppViewProps) {
             data-col={2}
             style={{
                 backgroundColor: 'black',
-                height:'100%',
-                width:'100%'
-
               }}
             >
-            <img onClick={() => content.current.scrollIntoView({ behavior: "smooth"})} height={'100%'}  width={'100%'}  src={currentPageApp?.carousel.itemList[3].image}></img>
+            <img onClick={() => content.current.scrollIntoView({ behavior: "smooth"})}  src={currentPageApp?.carousel.itemList[3].image}></img>
             </div>
             </a>
 
@@ -162,11 +158,9 @@ export function Morvil2View ({ pageRepository }: SinglePageAppViewProps) {
             data-col={3}
             style={{
                 backgroundColor: 'black',
-                height:'100%',
-                width:'100%'
               }}
             >
-            <img onClick={() => content.current.scrollIntoView({ behavior: "smooth"})} height={'100%'}  width={'100%'}  src={currentPageApp?.carousel.itemList[2].image}></img>
+            <img onClick={() => content.current.scrollIntoView({ behavior: "smooth"})}  src={currentPageApp?.carousel.itemList[2].image}></img>
             </div>
             </a>
 
@@ -188,11 +182,10 @@ export function Morvil2View ({ pageRepository }: SinglePageAppViewProps) {
             data-row={1}
             data-col={5}
             style={{
-                height:'100%',
-                width:'98%'
+
              }}
             >
-            <img  onClick={() => content.current.scrollIntoView({ behavior: "smooth"})} height={'100%'}  width={'100%'} src={currentPageApp?.carousel.itemList[1].image}></img>
+            <img  onClick={() => content.current.scrollIntoView({ behavior: "smooth"})} src={currentPageApp?.carousel.itemList[1].image}></img>
             </div>
             </a>
 
@@ -221,11 +214,11 @@ export function Morvil2View ({ pageRepository }: SinglePageAppViewProps) {
             data-row={2}
             data-col={0}
             style={{
-                backgroundColor: 'black',
+                background: 'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%, rgba(255,255,255,1) 100%)',
                 clipPath: 'inset(55% 0 0 0)',
              }}
             >
-            <img height={'100%'}  width={'100%'} src={currentPageApp?.carousel.itemList[1].image}></img>
+            {/* <img  src={currentPageApp?.carousel.itemList[1].image}></img> */}
             </div>
 
             <div
@@ -243,10 +236,10 @@ export function Morvil2View ({ pageRepository }: SinglePageAppViewProps) {
             data-row={2}
             data-col={2}
             style={{
-                backgroundColor: 'black',
+                background: 'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%, rgba(255,255,255,1) 100%)',
              }}
             >
-            <img height={'100%'}  width={'100%'} src={currentPageApp?.carousel.itemList[1].image}></img>
+            {/* <img  src={currentPageApp?.carousel.itemList[1].image}></img> */}
             </div>     
 
             <div
@@ -254,11 +247,11 @@ export function Morvil2View ({ pageRepository }: SinglePageAppViewProps) {
             data-row={2}
             data-col={3}
             style={{
-                backgroundColor: 'black',
+                background: 'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%, rgba(255,255,255,1) 100%)',
                 clipPath: 'inset(0 0 0 17%)',
                 }}
             >
-            <img height={'100%'}  width={'100%'} src={currentPageApp?.carousel.itemList[1].image}></img>
+            {/* <img  src={currentPageApp?.carousel.itemList[1].image}></img> */}
             </div>     
 
             <div
@@ -266,10 +259,10 @@ export function Morvil2View ({ pageRepository }: SinglePageAppViewProps) {
             data-row={2}
             data-col={4}
             style={{
-
+                background: 'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%, rgba(255,255,255,1) 100%)',
              }}
             >
-            <img height={'100%'}  width={'100%'} src={currentPageApp?.carousel.itemList[1].image}></img>
+            {/* <img  src={currentPageApp?.carousel.itemList[1].image}></img> */}
 
             </div>     
 
@@ -279,10 +272,10 @@ export function Morvil2View ({ pageRepository }: SinglePageAppViewProps) {
             data-row={2}
             data-col={5}
             style={{
-                backgroundColor: 'black',
+                background: 'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%, rgba(255,255,255,1) 100%)',
              }}
             >
-            <img height={'100%'}  width={'100%'} src={currentPageApp?.carousel.itemList[1].image}></img>
+            {/* <img  src={currentPageApp?.carousel.itemList[1].image}></img> */}
                 </div>
 
             <div
@@ -312,11 +305,11 @@ export function Morvil2View ({ pageRepository }: SinglePageAppViewProps) {
             data-row={3}
             data-col={0}
             style={{
-                backgroundColor: 'black',
+                background: 'linear-gradient(35deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 82%, rgba(255,255,255,1) 100%)',
                 clipPath: 'ellipse(98% 94% at 98% 5%)',
              }}
             >
-            <img height={'100%'}  width={'100%'} src={currentPageApp?.carousel.itemList[1].image}></img>
+            {/* <img  src={currentPageApp?.carousel.itemList[1].image}></img> */}
             </div>
 
             <div
@@ -324,10 +317,10 @@ export function Morvil2View ({ pageRepository }: SinglePageAppViewProps) {
             data-row={3}
             data-col={1}
             style={{
-                backgroundColor: 'black',
+                background: 'linear-gradient(349deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 70%, rgba(255,255,255,1) 100%)',
              }}
             >
-            <img height={'100%'}  width={'100%'} src={currentPageApp?.carousel.itemList[1].image}></img>
+            {/* <img  src={currentPageApp?.carousel.itemList[1].image}></img> */}
             </div>            
 
             <div
@@ -335,11 +328,11 @@ export function Morvil2View ({ pageRepository }: SinglePageAppViewProps) {
             data-row={3}
             data-col={2}
             style={{
-                backgroundColor: 'black',
+                background: 'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%, rgba(255,255,255,1) 100%)',
                 clipPath: 'ellipse(100% 100% at 0% 0%)',
              }}
             >
-            <img height={'100%'}  width={'100%'} src={currentPageApp?.carousel.itemList[1].image}></img>
+            {/* <img  src={currentPageApp?.carousel.itemList[1].image}></img> */}
             </div>     
 
             <div
@@ -347,11 +340,11 @@ export function Morvil2View ({ pageRepository }: SinglePageAppViewProps) {
             data-row={3}
             data-col={3}
             style={{
-                backgroundColor: 'black',
+                background: 'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%, rgba(255,255,255,1) 100%)',
                 clipPath: 'inset(0 0 0 17%)',
              }}
             >
-            <img height={'100%'}  width={'100%'} src={currentPageApp?.carousel.itemList[1].image}></img>
+            {/* <img  src={currentPageApp?.carousel.itemList[1].image}></img> */}
             </div>     
 
             <div
@@ -371,10 +364,10 @@ export function Morvil2View ({ pageRepository }: SinglePageAppViewProps) {
             data-col={5}
             style={{
                 clipPath: 'ellipse(98% 94% at 98% 5%)',
-                backgroundColor: 'black',
+                background: 'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%, rgba(255,255,255,1) 100%)',
             }}
             >
-            <img height={'100%'}  width={'100%'} src={currentPageApp?.carousel.itemList[1].image}></img>
+            {/* <img  src={currentPageApp?.carousel.itemList[1].image}></img> */}
                 </div>
             <div
             className="grid-item"
@@ -382,10 +375,10 @@ export function Morvil2View ({ pageRepository }: SinglePageAppViewProps) {
             data-col={6}
             style={{
                 clipPath: ' polygon(0 0, 50% 0, 50% 100%, 0 100%)',
-                backgroundColor: 'black',
+                background: 'linear-gradient(69deg, rgba(255,255,255,1) 21%, rgba(0,0,0,1) 100%)',
             }}
             >
-            <img height={'100%'}  width={'100%'} src={currentPageApp?.carousel.itemList[1].image}></img>
+            {/* <img  src={currentPageApp?.carousel.itemList[1].image}></img> */}
             </div>     
 
 

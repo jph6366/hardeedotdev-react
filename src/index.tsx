@@ -1,11 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom/client';
-// import './index.css';
-// import App from './App';
-// import ResponsiveApp from './ResponsiveApp'
 import { App } from './Main/App';
 import reportWebVitals from './reportWebVitals';
-import 'mapbox-gl/dist/mapbox-gl.css';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 // const store = createStore(rootReducer, applyMiddleware(thunk));
